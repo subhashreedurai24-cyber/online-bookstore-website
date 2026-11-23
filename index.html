@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>BookStore – Home</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="logo">📚 BookStore</div>
+  <ul class="nav-links">
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="about.html">About Us</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="wishlist.html">❤️ Wishlist <span id="wishlist-count">0</span></a></li>
+  </ul>
+</nav>
+
+<!-- HERO SECTION -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <h1>Discover Your Next Favourite Book</h1>
+    <p>Curated picks across every genre — with direct links to buy on Amazon & Flipkart.</p>
+    <div class="search-bar">
+      <input type="text" id="searchInput" placeholder="Search by title, theme, or age group..." oninput="filterBooks()"/>
+      <button onclick="filterBooks()">🔍 Search</button>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKS GRID -->
+<main class="container">
+  <h2 class="section-title">Our Collection</h2>
+  <div class="books-grid" id="booksGrid"></div>
+  <p id="noResults" style="display:none;text-align:center;color:#888;margin-top:2rem;font-size:1.1rem;">No books found. Try a different search!</p>
+</main>
+
+<footer class="footer">
+  <p>© 2025 BookStore | Made with ❤️ for book lovers</p>
+</footer>
+
+<script src="books.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

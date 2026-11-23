@@ -1,0 +1,433 @@
+/* style.css – BookStore Styles */
+
+/* ========== RESET & VARIABLES ========== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --cream: #fdf6ec;
+  --brown-dark: #3a2a1a;
+  --brown-mid: #7a5c3a;
+  --gold: #c8973a;
+  --gold-light: #e8c87a;
+  --green: #2d6a4f;
+  --amazon: #ff9900;
+  --flipkart: #2874f0;
+  --wish-pink: #ff6b8a;
+  --card-bg: #fff9f0;
+  --shadow: 0 4px 20px rgba(58,42,26,0.12);
+  --radius: 16px;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--cream);
+  color: var(--brown-dark);
+  min-height: 100vh;
+}
+
+/* ========== NAVBAR ========== */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2.5rem;
+  height: 64px;
+  background: rgba(58,42,26,0.97);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 16px rgba(0,0,0,0.18);
+}
+
+.logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  color: var(--gold-light);
+  letter-spacing: 1px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #e8dcc8;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: color 0.2s;
+  padding-bottom: 2px;
+  border-bottom: 2px solid transparent;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--gold-light);
+  border-color: var(--gold-light);
+}
+
+#wishlist-count {
+  background: var(--wish-pink);
+  color: #fff;
+  border-radius: 50%;
+  padding: 1px 7px;
+  font-size: 0.78rem;
+  margin-left: 4px;
+}
+
+/* ========== HERO ========== */
+.hero {
+  position: relative;
+  min-height: 340px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    url('https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=1400&q=80') center/cover no-repeat;
+  filter: blur(4px) brightness(0.38);
+  transform: scale(1.06);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 3rem 2rem;
+  max-width: 700px;
+}
+
+.hero-content h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.6rem;
+  color: #fff;
+  line-height: 1.2;
+  margin-bottom: 0.75rem;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.5);
+}
+
+.hero-content p {
+  color: #e8dcc8;
+  font-size: 1.05rem;
+  margin-bottom: 1.8rem;
+}
+
+/* ========== SEARCH ========== */
+.search-bar {
+  display: flex;
+  gap: 0;
+  border-radius: 50px;
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.3);
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+.search-bar input {
+  flex: 1;
+  padding: 0.85rem 1.4rem;
+  border: none;
+  outline: none;
+  font-size: 0.97rem;
+  font-family: 'DM Sans', sans-serif;
+  background: #fff;
+  color: var(--brown-dark);
+}
+
+.search-bar button {
+  padding: 0.85rem 1.5rem;
+  background: var(--gold);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 0.97rem;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+
+.search-bar button:hover { background: var(--brown-mid); }
+
+/* ========== CONTAINER ========== */
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem;
+}
+
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  color: var(--brown-dark);
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+/* ========== BOOKS GRID ========== */
+.books-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.8rem;
+}
+
+/* ========== BOOK CARD ========== */
+.book-card {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  transition: transform 0.22s, box-shadow 0.22s;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ecdcc8;
+}
+
+.book-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 36px rgba(58,42,26,0.18);
+}
+
+.card-cover {
+  width: 100%;
+  height: 220px;
+  background: #e8d8c0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.card-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+
+.book-card:hover .card-cover img { transform: scale(1.04); }
+
+.card-body {
+  padding: 1rem 1.1rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 0.45rem;
+}
+
+.book-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.02rem;
+  color: var(--brown-dark);
+  line-height: 1.35;
+}
+
+.book-author {
+  font-size: 0.82rem;
+  color: var(--brown-mid);
+}
+
+.book-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.2rem;
+}
+
+.tag {
+  font-size: 0.74rem;
+  padding: 3px 9px;
+  border-radius: 30px;
+  font-weight: 500;
+}
+
+.theme-tag { background: #f0e6d2; color: var(--brown-mid); }
+.age-tag   { background: #d4edda; color: var(--green); }
+
+.book-rating {
+  font-size: 0.88rem;
+  color: var(--brown-dark);
+  margin-top: 0.1rem;
+}
+
+.stars { color: var(--gold); }
+.rating-num { color: var(--brown-mid); }
+
+.book-price {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--green);
+}
+
+.card-actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.btn {
+  flex: 1;
+  text-align: center;
+  padding: 0.48rem 0.4rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-weight: 600;
+  transition: opacity 0.2s, transform 0.15s;
+}
+
+.btn:hover { opacity: 0.88; transform: scale(0.97); }
+
+.btn-amazon  { background: var(--amazon);  color: #fff; }
+.btn-flipkart { background: var(--flipkart); color: #fff; }
+
+.wishlist-btn {
+  width: 100%;
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+  border: 2px solid var(--wish-pink);
+  background: transparent;
+  color: var(--wish-pink);
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: all 0.2s;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.wishlist-btn.wished {
+  background: var(--wish-pink);
+  color: #fff;
+}
+
+.wishlist-btn:hover { opacity: 0.82; }
+
+.wishlist-btn.unlike {
+  border-color: #c0392b;
+  color: #c0392b;
+}
+
+/* ========== ABOUT & CONTACT PAGES ========== */
+.page-hero {
+  position: relative;
+  min-height: 280px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.page-hero-bg {
+  position: absolute;
+  inset: 0;
+  background: url('https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=1400&q=80') center/cover no-repeat;
+  filter: blur(5px) brightness(0.32);
+  transform: scale(1.06);
+}
+
+.page-hero-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  color: #fff;
+  padding: 2.5rem 2rem;
+  max-width: 760px;
+}
+
+.page-hero-content h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.4rem;
+  margin-bottom: 1.2rem;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.5);
+}
+
+.page-hero-content p {
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: #e8dcc8;
+}
+
+/* ========== CONTENT SECTION ========== */
+.content-section {
+  max-width: 760px;
+  margin: 3rem auto;
+  padding: 2.5rem;
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border: 1px solid #ecdcc8;
+}
+
+.content-section h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+  color: var(--brown-dark);
+}
+
+.content-section p {
+  line-height: 1.8;
+  color: #5a4030;
+  font-size: 1rem;
+}
+
+.contact-info { font-size: 1.05rem; line-height: 2.2; color: #4a3020; }
+.contact-info a { color: var(--gold); text-decoration: none; }
+
+/* ========== WISHLIST PAGE ========== */
+.wishlist-page {
+  background: #fff0f5;
+  min-height: 100vh;
+}
+
+.wishlist-hero {
+  background: linear-gradient(135deg, #ff6b8a 0%, #ff9eb5 100%);
+  padding: 3rem 2rem;
+  text-align: center;
+  color: #fff;
+}
+
+.wishlist-hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.wishlist-hero p { font-size: 1.05rem; opacity: 0.9; }
+
+#emptyWishlist {
+  text-align: center;
+  margin: 4rem auto;
+  color: #c06080;
+  font-size: 1.2rem;
+}
+
+#emptyWishlist a {
+  color: var(--gold);
+  text-decoration: underline;
+}
+
+/* ========== FOOTER ========== */
+.footer {
+  text-align: center;
+  padding: 1.5rem;
+  background: var(--brown-dark);
+  color: #c8b090;
+  font-size: 0.88rem;
+  margin-top: 3rem;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 640px) {
+  .navbar { padding: 0 1rem; }
+  .nav-links { gap: 1rem; }
+  .hero-content h1 { font-size: 1.7rem; }
+  .books-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 1rem; }
+  .card-cover { height: 170px; }
+}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>BookStore – My Wishlist</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+</head>
+<body class="wishlist-page">
+
+<nav class="navbar">
+  <div class="logo">📚 BookStore</div>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About Us</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="wishlist.html" class="active">❤️ Wishlist <span id="wishlist-count">0</span></a></li>
+  </ul>
+</nav>
+
+<div class="wishlist-hero">
+  <h1>❤️ My Wishlist</h1>
+  <p>Books you've saved — ready to buy whenever you are!</p>
+</div>
+
+<div class="container">
+  <div id="emptyWishlist" style="display:none;">
+    <p>💔 Your wishlist is empty.</p>
+    <p style="margin-top:0.5rem;"><a href="index.html">Browse books →</a></p>
+  </div>
+  <div class="books-grid" id="wishlistGrid"></div>
+</div>
+
+<footer class="footer">
+  <p>© 2025 BookStore | Made with ❤️ for book lovers</p>
+</footer>
+
+<script src="books.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
