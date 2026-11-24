@@ -3,7 +3,7 @@ Online Bookstore website
 
 live website:
 visit my website,
-https://amazing-rugelach-71881c.netlify.app
+https://subhashree-bookstore.netlify.app
 
 Features:
  responsive design
